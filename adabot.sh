@@ -44,23 +44,25 @@ curl -sS https://get.pimoroni.com/speakerphat | bash
 echo "┌───────────────────────────────────────┐"
 echo "|Installing and configuring sound player|"
 echo "└───────────────────────────────────────┘"
-mpg321
+sudo apt-get install mpg321
 
 echo "┌─────────────────────────────────────────┐"
 echo "|Installing and configuring PS4 Controller|"
 echo "└─────────────────────────────────────────┘"
 sudo apt install python3-dev python3-pip
 sudo pip3 install ds4drv
-cat >> /home/pi.bashrc <<EOF
+cat >> /home/pi/.bashrc <<EOF
 sudo ds4drv --daemon --led 000008 --emulate-xpad-wireless &
 EOF
-
-echo "┌─────────────────────────────────┐"
-echo "|After the next step is complete,	|"
-echo "|please reboot your pi and test.	|"
-echo "└─────────────────────────────────┘"
-read -p "Press enter to install PHP"
 
 echo "┌─────────────────────────────────────────┐"
 echo "|Installing and configuring PS4 Controller|"
 echo "└─────────────────────────────────────────┘"
+wget -q https://raw.githubusercontent.com/tretos53/Raspberry-Pi-Robot/master/ps4.sh -O /home/pi/ps4.sh
+
+echo "┌─────────────────────────────────┐"
+echo "|Reboot the pi, connect the ps4 and run sudo python ps4.sh|"
+echo "|To see the webcam go to your pi's IP                   	|"
+echo "└─────────────────────────────────┘"
+read -p "Press enter to install PHP"
+
