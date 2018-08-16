@@ -7,11 +7,6 @@
 # https://www.raspberrypi.org/forums/viewtopic.php?t=161715
 # and other places.
 
-if [ "$EUID" -ne 0 ]
-	then echo "Must be root, run sudo -i before running that script."
-	exit
-fi
-
 echo "┌─────────────────────────────────────────────────────────────────────────────────┐"
 echo "|I wrote this script to shorten the time for me to build a robot.			|"
 echo "|This script assume that Rapsbery Pi camera and Speaker PHAT are connected	|"
@@ -24,19 +19,22 @@ read -p "Press enter to continue"
 echo "┌─────────────────────┐"
 echo "|Updating repositories|"
 echo "└─────────────────────┘"
-apt-get update -yqq
+sudo apt-get update -yqq
 
-# echo "┌───────────────────────────────────────────┐"
-# echo "|Upgrading packages, this might take a while|"
-# echo "└───────────────────────────────────────────┘"
-# apt-get upgrade -yqq
+echo "┌───────────────────────────────────────────┐"
+echo "|Upgrading packages, this might take a while|"
+echo "└───────────────────────────────────────────┘"
+sudo apt-get upgrade -yqq
 
-echo "┌────────────────────────────────────────────────┐"
-echo "|Installing and configuring RPi-Cam-Web-Interface|"
-echo "└────────────────────────────────────────────────┘"
-git clone https://github.com/silvanmelchior/RPi_Cam_Web_Interface.git
+echo "┌─────────────────────────────────────────────────┐"
+echo "|Installing and configuring RPi-Cam-Web-Interface	|"
+echo "|You will get a blue configuration screen		|"
+echo "|where you can change the deafult settigns.	|"
+echo "└─────────────────────────────────────────────────┘"
+read -p "Press enter to continue"
+sudo git clone https://github.com/silvanmelchior/RPi_Cam_Web_Interface.git
 cd RPi_Cam_Web_Interface
-./install.sh
+sudo ./install.sh
 
 echo "┌───────────────────────────────────────┐"
 echo "|Installing and configuring Speaker PHAT|"
@@ -51,8 +49,8 @@ mpg321
 echo "┌─────────────────────────────────────────┐"
 echo "|Installing and configuring PS4 Controller|"
 echo "└─────────────────────────────────────────┘"
-apt install python3-dev python3-pip
-pip3 install ds4drv
+sudo apt install python3-dev python3-pip
+sudo pip3 install ds4drv
 cat >> /home/pi.bashrc <<EOF
 sudo ds4drv --daemon --led 000008 --emulate-xpad-wireless &
 EOF
