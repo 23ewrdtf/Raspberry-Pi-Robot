@@ -32,9 +32,17 @@ apt-get update -yqq
 echo "┌────────────────────────────────┐"
 echo "|Installing and configuring nginx|"
 echo "└────────────────────────────────┘"
+
 apt-get install nginx -yqq
-wget -q https://raw.githubusercontent.com/tretos53/Captive-Portal/master/default_nginx -O /etc/nginx/sites-enabled/default
-wget -q https://raw.githubusercontent.com/tretos53/Captive-Portal/master/index.php -O  /var/www/html/index.php
+
+
+
+
+wget -q https://raw.githubusercontent.com/tretos53/Raspberry-Pi-Robot/master/ps4.sh -O /home/pi/ps4.sh
+
+
+
+
 
 
 
