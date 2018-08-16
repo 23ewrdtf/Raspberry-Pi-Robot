@@ -12,9 +12,11 @@ if [ "$EUID" -ne 0 ]
 	exit
 fi
 
-echo "┌───────────────────────────────────┐"
-echo "|This script might take a while,	  |"
-echo "|so if you dont see much progress,  |"
+echo "┌─────────────────────────────────────────────────────────────────────────────────────────┐"
+echo "|I wrote this script to shorten the time for me to build a robot.				|"
+echo "|This script assume that Rapsbery Pi camera and Speaker PHAT 				|"
+echo "|is connected and all the cables are wired as per the diagram on the hackster page.	|"
+echo "|This script might take a while, so if you dont see much progress,			|"
 echo "|wait till you see all done message.|"
 echo "└───────────────────────────────────┘"
 read -p "Press enter to continue"
@@ -29,26 +31,23 @@ apt-get update -yqq
 # echo "└───────────────────────────────────────────┘"
 # apt-get upgrade -yqq
 
-echo "┌────────────────────────────────┐"
-echo "|Installing and configuring nginx|"
-echo "└────────────────────────────────┘"
-
-apt-get install nginx -yqq
-
-
-
-
-wget -q https://raw.githubusercontent.com/tretos53/Raspberry-Pi-Robot/master/ps4.sh -O /home/pi/ps4.sh
+echo "┌────────────────────────────────────────────────┐"
+echo "|Installing and configuring RPi-Cam-Web-Interface|"
+echo "└────────────────────────────────────────────────┘"
+git clone https://github.com/silvanmelchior/RPi_Cam_Web_Interface.git
+cd RPi_Cam_Web_Interface
+./install.sh
 
 
+echo "┌───────────────────────────────────────┐"
+echo "|Installing and configuring Speaker PHAT|"
+echo "└───────────────────────────────────────┘"
+curl -sS https://get.pimoroni.com/speakerphat | bash
 
-
-
-
-
-sed -i -- 's/#DAEMON_CONF=""/DAEMON_CONF="\/etc\/hostapd\/hostapd.conf"/g' /etc/default/hostapd
-
-
+echo "┌───────────────────────────────────────┐"
+echo "|Installing and configuring sound player|"
+echo "└───────────────────────────────────────┘"
+mpg321
 
 echo "┌─────────────────────────────────┐"
 echo "|After the next step is complete,	|"
