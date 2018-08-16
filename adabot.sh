@@ -12,13 +12,13 @@ if [ "$EUID" -ne 0 ]
 	exit
 fi
 
-echo "┌─────────────────────────────────────────────────────────────────────────────────────────┐"
-echo "|I wrote this script to shorten the time for me to build a robot.				|"
-echo "|This script assume that Rapsbery Pi camera and Speaker PHAT 				|"
-echo "|is connected and all the cables are wired as per the diagram on the hackster page.	|"
-echo "|This script might take a while, so if you dont see much progress,			|"
-echo "|wait till you see all done message.|"
-echo "└───────────────────────────────────┘"
+echo "┌─────────────────────────────────────────────────────────────────────────────────┐"
+echo "|I wrote this script to shorten the time for me to build a robot.			|"
+echo "|This script assume that Rapsbery Pi camera and Speaker PHAT are connected	|"
+echo "|and all the cables are wired as per the diagram on the hackster page.		|"
+echo "|This script might take a while, so if you dont see much progress,		|"
+echo "|wait till you see all done message.						|"
+echo "└─────────────────────────────────────────────────────────────────────────────────┘"
 read -p "Press enter to continue"
 
 echo "┌─────────────────────┐"
@@ -38,7 +38,6 @@ git clone https://github.com/silvanmelchior/RPi_Cam_Web_Interface.git
 cd RPi_Cam_Web_Interface
 ./install.sh
 
-
 echo "┌───────────────────────────────────────┐"
 echo "|Installing and configuring Speaker PHAT|"
 echo "└───────────────────────────────────────┘"
@@ -49,9 +48,21 @@ echo "|Installing and configuring sound player|"
 echo "└───────────────────────────────────────┘"
 mpg321
 
+echo "┌─────────────────────────────────────────┐"
+echo "|Installing and configuring PS4 Controller|"
+echo "└─────────────────────────────────────────┘"
+apt install python3-dev python3-pip
+pip3 install ds4drv
+cat >> /home/pi.bashrc <<EOF
+sudo ds4drv --daemon --led 000008 --emulate-xpad-wireless &
+EOF
+
 echo "┌─────────────────────────────────┐"
 echo "|After the next step is complete,	|"
 echo "|please reboot your pi and test.	|"
 echo "└─────────────────────────────────┘"
 read -p "Press enter to install PHP"
 
+echo "┌─────────────────────────────────────────┐"
+echo "|Installing and configuring PS4 Controller|"
+echo "└─────────────────────────────────────────┘"
