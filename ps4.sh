@@ -135,5 +135,3 @@ except KeyboardInterrupt:
     j.quit()#!/usr/bin/env python
 
 GPIO.cleanup()
-
-root@raspberrypi:/home/pi#
