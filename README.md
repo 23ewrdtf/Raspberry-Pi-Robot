@@ -4,8 +4,6 @@ Scripts to configure and operate this robot: https://www.hackster.io/tretos/lear
 
 Above robot is based on https://www.explainingcomputers.com/rasp_pi_robotics.html
 
-ps4.sh This is the script to control the robot using ps4 controller. 
-
 Tested on, without updating the system first, 2018-06-27-raspbian-stretch.zip
 
 Flash microsd card with etcher
