@@ -12,7 +12,13 @@ Put an empty file called ssh with no extension onto the boot partition, this wil
 
 Connect to the SSH and run below command. You can get the IP address from IP scanner. If you run Raspberry Pi zero you need a screen and a keyboard to confugure wifi unless someone can help me with that.
 
+Enable camera
 
+```
+sudo raspi-config
+```
+
+Run below
 ```
 curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/tretos53/Raspberry-Pi-Robot/master/adabot.sh | sudo bash $0
 ```
