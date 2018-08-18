@@ -19,12 +19,12 @@ read -p "Press enter to continue"
 echo "┌──────────────────────────────────────────────────────────────────────────"
 echo "|Updating repositories"
 echo "└──────────────────────────────────────────────────────────────────────────"
-sudo apt-get update -yqq
+#sudo apt-get update -yqq
 
 echo "┌──────────────────────────────────────────────────────────────────────────"
 echo "|Upgrading packages, this might take a while"
 echo "└──────────────────────────────────────────────────────────────────────────"
-sudo apt-get upgrade -yqq
+#sudo apt-get upgrade -yqq
 
 echo "┌──────────────────────────────────────────────────────────────────────────"
 echo "|Installing and configuring RPi-Cam-Web-Interface	"
@@ -32,9 +32,9 @@ echo "|You will get a blue configuration screen	"
 echo "|where you can change the deafult settigns."
 echo "└──────────────────────────────────────────────────────────────────────────"
 read -p "Press enter to continue"
-sudo git clone https://github.com/silvanmelchior/RPi_Cam_Web_Interface.git
-cd RPi_Cam_Web_Interface
-sudo ./install.sh
+#sudo git clone https://github.com/silvanmelchior/RPi_Cam_Web_Interface.git
+#cd RPi_Cam_Web_Interface
+#sudo ./install.sh
 
 echo "┌──────────────────────────────────────────────────────────────────────────"
 echo "|Installing and configuring Speaker PHAT"
