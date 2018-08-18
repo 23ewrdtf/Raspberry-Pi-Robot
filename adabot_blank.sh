@@ -1,12 +1,13 @@
 
 #!/bin/bash
-#
+# init
+
 # From 
 # https://gist.github.com/Lewiscowles1986/fecd4de0b45b2029c390
 # https://andrewwippler.com/2016/03/11/wifi-captive-portal/
 # https://www.raspberrypi.org/forums/viewtopic.php?t=161715
 # and other places.
-# init
+
 function pause(){
    read -p "$*"
 }
