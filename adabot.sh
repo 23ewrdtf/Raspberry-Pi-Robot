@@ -19,12 +19,12 @@ read -p "Press enter to continue"
 echo "┌──────────────────────────────────────────────────────────────────────────"
 echo "|Updating repositories"
 echo "└──────────────────────────────────────────────────────────────────────────"
-sudo apt-get update -yqq
+sudo apt-get update -y
 
 echo "┌──────────────────────────────────────────────────────────────────────────"
 echo "|Upgrading packages, this might take a while"
 echo "└──────────────────────────────────────────────────────────────────────────"
-sudo apt-get upgrade -yqq
+sudo apt-get upgrade -y
 
 echo "┌──────────────────────────────────────────────────────────────────────────"
 echo "|Installing and configuring RPi-Cam-Web-Interface	"
@@ -38,6 +38,7 @@ sudo ./install.sh
 
 echo "┌──────────────────────────────────────────────────────────────────────────"
 echo "|Installing and configuring Speaker PHAT"
+echo "|Follow prompt on the screen."
 echo "└──────────────────────────────────────────────────────────────────────────"
 curl -sS https://get.pimoroni.com/speakerphat | bash
 
@@ -62,11 +63,13 @@ wget -q https://raw.githubusercontent.com/tretos53/Raspberry-Pi-Robot/master/ps4
 
 echo "┌──────────────────────────────────────────────────────────────────────────"
 echo "|Connect your PS4 controller"
+echo "|Pres CTRL and C to stop and restart your pi."
+echo "|While the Pi reboots, connec the PS4 controller."
 echo "└──────────────────────────────────────────────────────────────────────────"
 sudo ds4drv
 
 echo "┌──────────────────────────────────────────────────────────────────────────"
-echo "|Reboot the pi, connect the ps4 and run sudo python ps4.sh"
+echo "|Reboot the pi, connect the ps4 and run sudo python ps4.sh afrer reboot"
 echo "|To see the webcam go to your pi's IP"
 echo "└──────────────────────────────────────────────────────────────────────────"
 read -p "Press enter to install PHP"
