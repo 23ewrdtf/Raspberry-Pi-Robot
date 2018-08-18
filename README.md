@@ -10,7 +10,9 @@ Flash microsd card with etcher
 
 Put an empty file called ssh with no extension onto the boot partition, this will enable ssh at first boot. No need for screen and keyboard.
 
-Connect to the SSH and run below command. You can get the IP address from IP scanner. If you run Raspberry Pi zero you need a screen and a keyboard to confugure wifi unless someone can help me with that.
+Put a file called wpa_supplicant.conf on boot partition. See https://github.com/tretos53/Raspberry-Pie for details.
+
+Connect to pi using putty, you can find you pis IP address usinc IP scanner.
 
 Enable camera using command below and reboot.
 
@@ -52,17 +54,17 @@ Add below to /home/pi/.bashrc
 
 ```sudo ds4drv --daemon --led 000008 --emulate-xpad-wireless &```
 
-Installing and configuring PS4 Controller
+Coptying a python script to operate the robot.
 
 ```wget -q https://raw.githubusercontent.com/tretos53/Raspberry-Pi-Robot/master/ps4.sh -O /home/pi/ps4.sh```
 
-Connect your PS4 controller
-Pres CTRL and C to stop and restart your pi.
+Run below command
+
+```
+sudo ds4drv
+```
+
+Connect your PS4 controller and wait for the connection. Press CTRL and C to stop and restart your pi.
 While the Pi reboots, connect the PS4 controller.
 
-```sudo ds4drv```
-
-Reboot the pi, connect the ps4 and run sudo python ps4.sh afrer reboot
-To see the webcam go to your pi's IP
-
-
+Run sudo python ps4.sh afrer reboot. To see the webcam go to your pi's IP.
