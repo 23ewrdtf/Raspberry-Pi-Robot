@@ -16,9 +16,7 @@ Connect to pi using putty, you can find you pis IP address usinc IP scanner.
 
 Enable camera using command below and reboot.
 
-```
-sudo raspi-config
-```
+```sudo raspi-config```
 
 Updating repositories
 
