@@ -6,7 +6,10 @@
 # https://andrewwippler.com/2016/03/11/wifi-captive-portal/
 # https://www.raspberrypi.org/forums/viewtopic.php?t=161715
 # and other places.
-
+# init
+function pause(){
+   read -p "$*"
+}
 echo "┌──────────────────────────────────────────────────────────────────────────"
 echo "|I wrote this script to shorten the time for me to build a robot."
 echo "|This script assume that Rapsbery Pi camera and Speaker PHAT are connected"
@@ -14,7 +17,7 @@ echo "|and all the cables are wired as per the diagram on the hackster page."
 echo "|This script might take a while, so if you dont see much progress,"
 echo "|wait till you see all done message."
 echo "└──────────────────────────────────────────────────────────────────────────"
-read -p "Press enter to continue"
+pause 'Press [Enter] key to continue...'
 
 echo "┌──────────────────────────────────────────────────────────────────────────"
 echo "|Updating repositories"
