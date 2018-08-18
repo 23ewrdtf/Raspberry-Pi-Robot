@@ -45,7 +45,6 @@ Installing and configuring sound player
 Installing and configuring PS4 Controller
 
 ```
-sudo apt install python3-dev python3-pip
 sudo pip3 install ds4drv
 ```
 
