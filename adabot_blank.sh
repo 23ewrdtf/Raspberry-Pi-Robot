@@ -1,6 +1,5 @@
 
 #!/bin/bash
-# init
 
 # From 
 # https://gist.github.com/Lewiscowles1986/fecd4de0b45b2029c390
@@ -8,9 +7,6 @@
 # https://www.raspberrypi.org/forums/viewtopic.php?t=161715
 # and other places.
 
-function pause(){
-   read -p "$*"
-}
 echo "┌──────────────────────────────────────────────────────────────────────────"
 echo "|I wrote this script to shorten the time for me to build a robot."
 echo "|This script assume that Rapsbery Pi camera and Speaker PHAT are connected"
@@ -18,7 +14,7 @@ echo "|and all the cables are wired as per the diagram on the hackster page."
 echo "|This script might take a while, so if you dont see much progress,"
 echo "|wait till you see all done message."
 echo "└──────────────────────────────────────────────────────────────────────────"
-pause 'Press [Enter] key to continue...'
+read -rsp $'Press any key to continue...\n' -n1 key
 
 echo "┌──────────────────────────────────────────────────────────────────────────"
 echo "|Updating repositories"
