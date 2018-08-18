@@ -18,7 +18,52 @@ Enable camera using command below and reboot.
 sudo raspi-config
 ```
 
-Run below
+Updating repositories
+
+```sudo apt-get update -y```
+
+Upgrading packages, this might take a while
+
+```sudo apt-get upgrade -y```
+
+Installing and configuring Speaker PHAT
+
+```curl -sS https://get.pimoroni.com/speakerphat | bash```
+
+Installing and configuring RPi-Cam-Web-Interface
+
 ```
-curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/tretos53/Raspberry-Pi-Robot/master/adabot.sh | sudo bash $0
+sudo git clone https://github.com/silvanmelchior/RPi_Cam_Web_Interface.git
+cd RPi_Cam_Web_Interface
+sudo ./install.sh
 ```
+
+Installing and configuring sound player
+
+```sudo apt-get install mpg321```
+
+Installing and configuring PS4 Controller
+
+```
+sudo apt install python3-dev python3-pip
+sudo pip3 install ds4drv
+```
+
+Add below to /home/pi/.bashrc
+
+```sudo ds4drv --daemon --led 000008 --emulate-xpad-wireless &```
+
+Installing and configuring PS4 Controller
+
+```wget -q https://raw.githubusercontent.com/tretos53/Raspberry-Pi-Robot/master/ps4.sh -O /home/pi/ps4.sh```
+
+Connect your PS4 controller
+Pres CTRL and C to stop and restart your pi.
+While the Pi reboots, connect the PS4 controller.
+
+```sudo ds4drv```
+
+Reboot the pi, connect the ps4 and run sudo python ps4.sh afrer reboot
+To see the webcam go to your pi's IP
+
+
