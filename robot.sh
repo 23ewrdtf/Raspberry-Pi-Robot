@@ -6,8 +6,8 @@ $1 SSID
 USAGE
 
 if [ "$EUID" -ne 0 ]
-	then echo "Must be root, run sudo -i before running this script."
-	exit
+        then echo "Must be root, run sudo -i before running this script."
+        exit
 fi
 
 SSID=${1:-Robot}
