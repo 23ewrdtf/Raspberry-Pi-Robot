@@ -1,51 +1,30 @@
-## Adabot, Raspberry-Pi-Robot
+## Robot on Rapsberry Pi
 
-Scripts to configure and operate this robot: https://www.hackster.io/tretos/learning-and-building-a-raspberry-pie-robot-290ac1
+Below script will install a website to control a Raspbery Pie. 
 
-Above robot is based on https://www.explainingcomputers.com/rasp_pi_robotics.html
+## Requierements
 
-Tested on, without updating the system first, 2018-06-27-raspbian-stretch.zip
+  - A robot build acording to this diagram: https://www.hackster.io/tretos/learning-and-building-a-raspberry-pie-robot-290ac1#schematics
+  - A Raspbery pie running 2019-09-26-raspbian-buster-lite.zip
+
+## Instructions
 
 Flash microsd card with etcher
 
 Put an empty file called ssh with no extension onto the boot partition, this will enable ssh at first boot. No need for screen and keyboard.
 
-Put a file called wpa_supplicant.conf on boot partition. See https://github.com/tretos53/Raspberry-Pie for details.
+Configure wifi (https://github.com/tretos53/Raspberry-Pie#setting-up-a-wifi-on-first-boot) or other way so you can connect to the 🥧
 
-Connect to pi using putty, you can find you pis IP address usinc IP scanner.
+Connect Pi to the network and boot.
+
+Connect to the SSH and run below command. You can get the IP address from IP scanner.
 
 Enable camera using command below and reboot.
 
 ```sudo raspi-config```
 
-Updating repositories
-
-```sudo apt-get update -y```
-
-Upgrading packages, this might take a while
-
-```sudo apt-get upgrade -y```
-
-Installing and configuring Speaker PHAT
-
-```curl -sS https://get.pimoroni.com/speakerphat | bash```
-
-Installing and configuring RPi-Cam-Web-Interface
-
 ```
-sudo git clone https://github.com/silvanmelchior/RPi_Cam_Web_Interface.git
-cd RPi_Cam_Web_Interface
-sudo ./install.sh
-```
-
-Installing and configuring sound player
-
-```sudo apt-get install mpg321```
-
-Installing and configuring PS4 Controller
-
-```
-sudo pip3 install ds4drv
+curl -H 'Cache-Control: no-cache' -sSL https://raw.githubusercontent.com/tretos53/Captive-Portal/master/robot.sh | sudo bash $0
 ```
 
 Add below to /home/pi/.bashrc
